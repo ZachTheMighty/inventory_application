@@ -12,7 +12,7 @@ VALUES
 ('Uncategorized'),
 ('String'),
 ('Woodwind'),
-('Brass'):
+('Brass');
 
 CREATE TABLE IF NOT EXISTS instruments (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -23,10 +23,10 @@ CREATE TABLE IF NOT EXISTS instruments (
 
 INSERT INTO instruments (instrument, category_id)
 VALUES
-('Trumpet', 3),
-('Violin', 1),
-('Flute', 2),
-('Cello', 1)
+('Trumpet', 4),
+('Violin', 2),
+('Flute', 3),
+('Cello', 2)
 `;
 
 async function main() {
