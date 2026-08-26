@@ -9,10 +9,10 @@ CREATE TABLE IF NOT EXISTS categories (
 
 INSERT INTO categories (category)
 VALUES
+('Uncategorized'),
 ('String'),
 ('Woodwind'),
-('Brass'),
-('Uncategorized');
+('Brass'):
 
 CREATE TABLE IF NOT EXISTS instruments (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
