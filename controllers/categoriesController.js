@@ -1,5 +1,7 @@
-const categoriesListGet = (req, res) => {
-  const categories = ["cat1", "cat2", "cat3"];
+const db = require("../db/queries.js");
+
+const categoriesListGet = async (req, res) => {
+  const categories = await db.getAllCategories();
   res.render("categories.ejs", { categories });
 };
 
