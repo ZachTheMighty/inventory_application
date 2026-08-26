@@ -17,6 +17,10 @@ categoriesRouter.post(
   categoriesController.categoriesCreatePost,
 );
 
+categoriesRouter.get("/delete/category/Uncategorized", (req, res) =>
+  res.send("You cant delete this shit smartass"),
+);
+
 categoriesRouter.get(
   "/delete/category/:categoryName",
   categoriesController.categoriesDelete,
