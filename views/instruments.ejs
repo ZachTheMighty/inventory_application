@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>All <%= categoryName%> instruments</title>
+</head>
+<body>
+<% if(instruments.length === 0) {%>
+<p>Category not found</p>
+<a href="/">back home</a>
+<% }%>
+<ul>
+<% instruments.forEach(row => {%>
+<li><%= row.instrument%></li>
+<% }); %>
+</ul>
+<a href="/">back home</a>
+</body>
+</html>

@@ -7,7 +7,7 @@
 <body>
 <ul>
 <% categories.forEach(row => {%>
-<li><%= row.category%></li>
+<li><a href="/category/<%= row.category%>"><%= row.category%></a></li>
 <% }); %>
 </ul>
 </body>

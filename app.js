@@ -12,6 +12,10 @@ app.set("views engine", "ejs");
 
 app.use("/", categoriesRouter);
 
+app.use((req, res) => {
+  res.status(404).send("page doesn't exist you dumb bitch");
+});
+
 app.listen(process.env.NODE_SERVER_PORT, (error) => {
   if (error) throw error;
   console.log(`listening on PORT ${process.env.NODE_SERVER_PORT}`);

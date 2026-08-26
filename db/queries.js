@@ -5,6 +5,15 @@ async function getAllCategories() {
   return rows;
 }
 
+async function getInstruments(category) {
+  const { rows } = await pool.query(
+    "SELECT instrument, category FROM instruments INNER JOIN categories ON instruments.category_id = categories.id WHERE category = ($1)",
+    [category],
+  );
+  return rows;
+}
+
 module.exports = {
   getAllCategories,
+  getInstruments,
 };
