@@ -11,7 +11,8 @@ INSERT INTO categories (category)
 VALUES
 ('String'),
 ('Woodwind'),
-('Brass');
+('Brass'),
+('Uncategorized');
 
 CREATE TABLE IF NOT EXISTS instruments (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
