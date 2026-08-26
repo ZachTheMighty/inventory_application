@@ -5,6 +5,7 @@
 	<title>New category</title>
 </head>
 <body>
+<%- include("partials/error.ejs", errors)%>
 <h1>New category</h1>
 <form action="/new_category" method="post">
 <input type="text" name="categoryName">
