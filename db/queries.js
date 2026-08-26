@@ -10,6 +10,13 @@ async function insertCategory(category) {
 }
 
 async function getInstruments(category) {
+  const categoryExists = await pool.query(
+    "SELECT * FROM categories WHERE category = ($1)",
+    [category],
+  );
+  if (categoryExists.rows.length === 0)
+    throw new Error("Category does not exist");
+
   const { rows } = await pool.query(
     "SELECT instrument, category FROM instruments INNER JOIN categories ON instruments.category_id = categories.id WHERE category = ($1)",
     [category],

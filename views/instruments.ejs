@@ -5,8 +5,9 @@
 	<title>All <%= categoryName%> instruments</title>
 </head>
 <body>
+<%- include("partials/error.ejs", {errors: instruments})%>
 <% if(instruments.length === 0) {%>
-<p>Category not found</p>
+<p>This instrument does not have any instruments yet, add some!</p>
 <% }%>
 <ul>
 <% instruments.forEach(row => {%>
