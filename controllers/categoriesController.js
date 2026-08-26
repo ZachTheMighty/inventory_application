@@ -28,7 +28,7 @@ const categoriesCreatePost = [
         .status(400)
         .render("createCategory.ejs", { added: false, errors });
 
-    await db.insertCategory(matchedData(req.body.categoryName));
+    await db.insertCategory(matchedData(req).categoryName);
     res.render("createCategory.ejs", { added: true, errors: [] });
   },
 ];
