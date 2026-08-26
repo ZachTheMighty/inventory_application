@@ -10,10 +10,10 @@ categoriesRouter.get(
   categoriesController.instrumentsListGet,
 );
 
-categoriesRouter.get("/new_category", categoriesController.categoriesCreateGet);
+categoriesRouter.get("/new/category", categoriesController.categoriesCreateGet);
 
 categoriesRouter.post(
-  "/new_category",
+  "/new/category",
   categoriesController.categoriesCreatePost,
 );
 
