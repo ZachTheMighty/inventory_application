@@ -33,6 +33,11 @@ const categoriesCreatePost = [
   },
 ];
 
+const categoriesDelete = async (req, res) => {
+  await db.deleteCategory(req.params.categoryName);
+  res.send("category successfully delete <a href='/' back home</a>");
+};
+
 const instrumentsListGet = async (req, res) => {
   const instruments = await db.getInstruments(req.params.categoryName);
   res.render("instruments.ejs", {
@@ -45,5 +50,6 @@ module.exports = {
   categoriesListGet,
   categoriesCreateGet,
   categoriesCreatePost,
+  categoriesDelete,
   instrumentsListGet,
 };

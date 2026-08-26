@@ -7,7 +7,11 @@
 <body>
 <ul>
 <% categories.forEach(row => {%>
-<li><a href="/category/<%= row.category%>"><%= row.category%></a></li>
+<li><a href="/category/<%= row.category%>"><%= row.category%></a>
+<% if(row.id !== 1) {%>
+<a href="/delete/category/<%= row.category%>"> | Delete</a>
+<% }%>
+</li>
 <% }); %>
 </ul>
 <a href="/new/category">Add a category</a>
