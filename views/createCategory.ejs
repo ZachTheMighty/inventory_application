@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New category</title>
+</head>
+<body>
+<h1>New category</h1>
+<form action="/new_category" method="post">
+<input type="text" name="categoryName">
+<button>Add category</button>
+</form>
+<%= added ? "category added!" : ""%>
+<a href="/">back home</a>
+</body>
+</html>

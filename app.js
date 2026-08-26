@@ -9,6 +9,7 @@ const categoriesRouter = require("./routes/categoriesRouter.js");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("views engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/", categoriesRouter);
 

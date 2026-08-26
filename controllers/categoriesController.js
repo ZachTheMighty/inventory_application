@@ -5,6 +5,15 @@ const categoriesListGet = async (req, res) => {
   res.render("categories.ejs", { categories });
 };
 
+const categoriesCreateGet = async (req, res) => {
+  res.render("createCategory.ejs", { added: false });
+};
+
+const categoriesCreatePost = async (req, res) => {
+  await db.insertCategory(req.body.categoryName);
+  res.render("createCategory.ejs", { added: true });
+};
+
 const instrumentsListGet = async (req, res) => {
   const instruments = await db.getInstruments(req.params.categoryName);
   res.render("instruments.ejs", {
@@ -15,5 +24,7 @@ const instrumentsListGet = async (req, res) => {
 
 module.exports = {
   categoriesListGet,
+  categoriesCreateGet,
+  categoriesCreatePost,
   instrumentsListGet,
 };
