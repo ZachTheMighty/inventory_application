@@ -21,6 +21,13 @@ async function deleteCategory(category) {
   await pool.query("DELETE FROM categories WHERE category = ($1)", [category]);
 }
 
+async function updateCategory(oldName, newName) {
+  await pool.query(
+    "UPDATE categories SET category = ($2) WHERE category = ($1)",
+    [oldName, newName],
+  );
+}
+
 async function getInstruments(category) {
   const categoryExists = await pool.query(
     "SELECT * FROM categories WHERE category = ($1)",
@@ -40,5 +47,6 @@ module.exports = {
   getAllCategories,
   insertCategory,
   deleteCategory,
+  updateCategory,
   getInstruments,
 };

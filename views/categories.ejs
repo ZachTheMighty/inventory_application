@@ -10,6 +10,7 @@
 <li><a href="/category/<%= row.category%>"><%= row.category%></a>
 <% if(row.id !== 1) {%>
 <a href="/delete/category/<%= row.category%>"> | Delete</a>
+<a href="/update/category/<%= row.category%>"> | Update</a>
 <% }%>
 </li>
 <% }); %>

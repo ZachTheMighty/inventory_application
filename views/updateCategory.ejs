@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Update Category</title>
+</head>
+<body>
+<%- include("partials/error.ejs", errors)%>
+    <form action="/update/category/<%= categoryName%>" method="post">
+        <input type="text" name="categoryName">
+        <button>Update Category</button>
+    </form>
+    <%= updated ? "Category updated successfully" : ""%>
+    <a href="/">back home</a>
+</body>
+</html>
