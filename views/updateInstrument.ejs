@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Update Instrument</title>
+</head>
+<body>
+<%- include("partials/error.ejs", errors)%>
+    <form action="/instrument/update/<%= instrumentName%>?category=<%= categoryName%>" method="post">
+        <input type="text" name="instrumentName">
+        <button>Update Instrument</button>
+    </form>
+    <%= updated ? "Instrument updated successfully" : ""%>
+    <a href="/">back home</a>
+</body>
+</html>

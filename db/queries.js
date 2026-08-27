@@ -60,6 +60,18 @@ async function deleteInstrument(instrument) {
   ]);
 }
 
+async function updateInstrument(oldName, newName, category) {
+  console.log(oldName, newName);
+  const { rows } = await pool.query(
+    "SELECT id FROM categories WHERE category = ($1)",
+    [category],
+  );
+  await pool.query(
+    "UPDATE instruments SET instrument = ($1), category_id = ($3) WHERE instrument = ($2)",
+    [newName, oldName, rows[0].id],
+  );
+}
+
 module.exports = {
   getAllCategories,
   insertCategory,
@@ -68,4 +80,5 @@ module.exports = {
   getInstruments,
   insertInstrument,
   deleteInstrument,
+  updateInstrument,
 };

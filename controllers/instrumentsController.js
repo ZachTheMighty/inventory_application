@@ -52,9 +52,46 @@ const instrumentDelete = async (req, res) => {
   res.send("Instrument successfully deleted <a href='/'>back home</a>");
 };
 
+const instrumentUpdateGet = (req, res) => {
+  res.render("updateInstrument.ejs", {
+    updated: false,
+    instrumentName: req.params.instrumentName,
+    categoryName: req.query.category,
+    errors: [],
+  });
+};
+
+const instrumentUpdatePost = [
+  validateInstrument,
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty())
+      return res.status(400).render("updateInstrument.ejs", {
+        updated: false,
+        instrumentName: req.params.instrumentName,
+        categoryName: req.query.category,
+        errors,
+      });
+
+    await db.updateInstrument(
+      req.params.instrumentName,
+      req.body.instrumentName,
+      req.query.category,
+    );
+    res.render("updateInstrument.ejs", {
+      updated: true,
+      instrumentName: req.params.instrumentName,
+      categoryName: req.query.category,
+      errors: [],
+    });
+  },
+];
+
 module.exports = {
   instrumentsListGet,
   instrumentCreateGet,
   instrumentCreatePost,
   instrumentDelete,
+  instrumentUpdateGet,
+  instrumentUpdatePost,
 };

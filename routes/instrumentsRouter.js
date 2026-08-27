@@ -11,4 +11,14 @@ instrumentsRouter.get(
   instrumentsController.instrumentDelete,
 );
 
+instrumentsRouter.get(
+  "/update/:instrumentName",
+  instrumentsController.instrumentUpdateGet,
+);
+
+instrumentsRouter.post(
+  "/update/:instrumentName",
+  instrumentsController.instrumentUpdatePost,
+);
+
 module.exports = instrumentsRouter;
