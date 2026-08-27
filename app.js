@@ -2,7 +2,12 @@ const { loadEnvFile } = require("node:process");
 const express = require("express");
 const path = require("node:path");
 
-loadEnvFile();
+try {
+  loadEnvFile();
+} catch (error) {
+  if (error.code !== "ENONET") throw error;
+}
+
 const app = express();
 
 const categoriesRouter = require("./routes/categoriesRouter.js");
