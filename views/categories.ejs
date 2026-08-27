@@ -9,13 +9,13 @@
 <% categories.forEach(row => {%>
 <li><a href="/category/<%= row.category%>"><%= row.category%></a>
 <% if(row.id !== 1) {%>
-<a href="/delete/category/<%= row.category%>"> | Delete</a>
-<a href="/update/category/<%= row.category%>"> | Update</a>
+<a href="/category/delete/<%= row.category%>"> | Delete</a>
+<a href="/category/update/<%= row.category%>"> | Update</a>
 <% }%>
 </li>
 <% }); %>
 </ul>
-<a href="/new/category">Add a category</a>
+<a href="/category/new">Add a category</a>
 </form>
 </body>
 </html>

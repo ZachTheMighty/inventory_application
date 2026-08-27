@@ -43,10 +43,22 @@ async function getInstruments(category) {
   return rows;
 }
 
+async function insertInstrument(instrument, category) {
+  const { rows } = await pool.query(
+    "SELECT id FROM categories WHERE category = ($1)",
+    [category],
+  );
+  await pool.query(
+    "INSERT INTO instruments (instrument, category_id) VALUES ($1, $2)",
+    [instrument, rows[0].id],
+  );
+}
+
 module.exports = {
   getAllCategories,
   insertCategory,
   deleteCategory,
   updateCategory,
   getInstruments,
+  insertInstrument,
 };

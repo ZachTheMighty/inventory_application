@@ -66,14 +66,6 @@ const categoriesUpdatePost = [
   },
 ];
 
-const instrumentsListGet = async (req, res) => {
-  const instruments = await db.getInstruments(req.params.categoryName);
-  res.render("instruments.ejs", {
-    instruments,
-    categoryName: req.params.categoryName,
-  });
-};
-
 module.exports = {
   categoriesListGet,
   categoriesCreateGet,
@@ -81,5 +73,4 @@ module.exports = {
   categoriesDelete,
   categoriesUpdateGet,
   categoriesUpdatePost,
-  instrumentsListGet,
 };

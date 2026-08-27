@@ -6,12 +6,17 @@ loadEnvFile();
 const app = express();
 
 const categoriesRouter = require("./routes/categoriesRouter.js");
+const instrumentsRouter = require("./routes/instrumentsRouter.js");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("views engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", categoriesRouter);
+app.get("/", (req, res) =>
+  res.send("<a href='/category'>Browse our catalogue</a>"),
+);
+app.use("/category", categoriesRouter);
+app.use("/instrument", instrumentsRouter);
 
 app.use((req, res) => {
   res.status(404).send("page doesn't exist you dumb bitch");

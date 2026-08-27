@@ -6,7 +6,7 @@
 </head>
 <body>
 <%- include("partials/error.ejs", errors)%>
-    <form action="/update/category/<%= categoryName%>" method="post">
+    <form action="/category/update/<%= categoryName%>" method="post">
         <input type="text" name="categoryName">
         <button>Update Category</button>
     </form>

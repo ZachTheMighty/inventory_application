@@ -3,36 +3,34 @@ const { Router } = require("express");
 const categoriesRouter = Router();
 
 const categoriesController = require("../controllers/categoriesController.js");
+const instrumentsController = require("../controllers/instrumentsController.js");
 
 categoriesRouter.get("/", categoriesController.categoriesListGet);
+categoriesRouter.get("/new", categoriesController.categoriesCreateGet);
+
 categoriesRouter.get(
-  "/category/:categoryName",
-  categoriesController.instrumentsListGet,
+  "/:categoryName",
+  instrumentsController.instrumentsListGet,
 );
 
-categoriesRouter.get("/new/category", categoriesController.categoriesCreateGet);
+categoriesRouter.post("/new", categoriesController.categoriesCreatePost);
 
-categoriesRouter.post(
-  "/new/category",
-  categoriesController.categoriesCreatePost,
-);
-
-categoriesRouter.get("/delete/category/Uncategorized", (req, res) =>
+categoriesRouter.get("/delete/Uncategorized", (req, res) =>
   res.send("You cant delete this shit smartass"),
 );
 
 categoriesRouter.get(
-  "/delete/category/:categoryName",
+  "/delete/:categoryName",
   categoriesController.categoriesDelete,
 );
 
 categoriesRouter.get(
-  "/update/category/:categoryName",
+  "/update/:categoryName",
   categoriesController.categoriesUpdateGet,
 );
 
 categoriesRouter.post(
-  "/update/category/:categoryName",
+  "/update/:categoryName",
   categoriesController.categoriesUpdatePost,
 );
 

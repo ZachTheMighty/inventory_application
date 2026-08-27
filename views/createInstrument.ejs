@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New Instrument</title>
+</head>
+<body>
+<%- include("partials/error.ejs", errors)%>
+<h1>New Instrument</h1>
+<form action="/instrument/new?category=<%= categoryName%>" method="post">
+<input type="text" name="instrumentName">
+<button>Add instrument</button>
+</form>
+<%= added ? "instrument added!" : ""%>
+<a href="/">back home</a>
+</body>
+</html>
