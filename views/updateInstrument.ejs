@@ -7,7 +7,7 @@
 <body>
 <%- include("partials/error.ejs", errors)%>
     <form action="/instrument/update/<%= instrumentName%>" method="post">
-        <input type="text" name="instrumentName" value="<%= instrumentName%>">
+        <input type="text" name="instrumentName">
         <select name="categoryName">
 <% categories.forEach(category => {%>
 <option value="<%= category.category%>"><%= category.category%></option>
