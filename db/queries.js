@@ -54,6 +54,12 @@ async function insertInstrument(instrument, category) {
   );
 }
 
+async function deleteInstrument(instrument) {
+  await pool.query("DELETE FROM instruments WHERE instrument = ($1)", [
+    instrument,
+  ]);
+}
+
 module.exports = {
   getAllCategories,
   insertCategory,
@@ -61,4 +67,5 @@ module.exports = {
   updateCategory,
   getInstruments,
   insertInstrument,
+  deleteInstrument,
 };

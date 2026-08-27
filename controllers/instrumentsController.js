@@ -38,7 +38,6 @@ const instrumentCreatePost = [
         categoryName: req.query.category,
       });
 
-    console.log(req.body.instrumentName, req.query.categoryName);
     await db.insertInstrument(req.body.instrumentName, req.query.category);
     res.render("createInstrument.ejs", {
       added: true,
@@ -48,8 +47,14 @@ const instrumentCreatePost = [
   },
 ];
 
+const instrumentDelete = async (req, res) => {
+  await db.deleteInstrument(req.params.instrumentName);
+  res.send("Instrument successfully deleted <a href='/'>back home</a>");
+};
+
 module.exports = {
   instrumentsListGet,
   instrumentCreateGet,
   instrumentCreatePost,
+  instrumentDelete,
 };
