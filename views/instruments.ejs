@@ -11,7 +11,7 @@
 <% }%>
 <ul>
 <% instruments.forEach(row => {%>
-<li><%= row.instrument%> <a href="/instrument/delete/<%= row.instrument%>"> | Delete</a> <a href="/instrument/update/<%= row.instrument%>?category=<%= categoryName%>"> | Update</a></li>
+<li><%= row.instrument%> <a href="/instrument/delete/<%= row.instrument%>"> | Delete</a> <a href="/instrument/update/<%= row.instrument%>"> | Update</a></li>
 <% }); %>
 </ul>
 <a href="/instrument/new?category=<%=categoryName%>">Add an instrument to this category</a>

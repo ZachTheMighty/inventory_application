@@ -7,7 +7,7 @@
 <body>
 <%- include("partials/error.ejs", errors)%>
     <form action="/category/update/<%= categoryName%>" method="post">
-        <input type="text" name="categoryName">
+        <input type="text" name="categoryName" value="<%= categoryName%>">
         <button>Update Category</button>
     </form>
     <%= updated ? "Category updated successfully" : ""%>

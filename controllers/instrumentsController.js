@@ -52,11 +52,12 @@ const instrumentDelete = async (req, res) => {
   res.send("Instrument successfully deleted <a href='/'>back home</a>");
 };
 
-const instrumentUpdateGet = (req, res) => {
+const instrumentUpdateGet = async (req, res) => {
   res.render("updateInstrument.ejs", {
     updated: false,
     instrumentName: req.params.instrumentName,
     categoryName: req.query.category,
+    categories: await db.getAllCategories(),
     errors: [],
   });
 };
@@ -64,24 +65,25 @@ const instrumentUpdateGet = (req, res) => {
 const instrumentUpdatePost = [
   validateInstrument,
   async (req, res) => {
+    console.log(req.body.categoryName);
     const errors = validationResult(req);
     if (!errors.isEmpty())
       return res.status(400).render("updateInstrument.ejs", {
         updated: false,
         instrumentName: req.params.instrumentName,
-        categoryName: req.query.category,
+        categories: await db.getAllCategories(),
         errors,
       });
 
     await db.updateInstrument(
       req.params.instrumentName,
       req.body.instrumentName,
-      req.query.category,
+      req.body.categoryName,
     );
     res.render("updateInstrument.ejs", {
       updated: true,
       instrumentName: req.params.instrumentName,
-      categoryName: req.query.category,
+      categories: await db.getAllCategories(),
       errors: [],
     });
   },

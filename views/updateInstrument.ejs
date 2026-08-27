@@ -6,8 +6,13 @@
 </head>
 <body>
 <%- include("partials/error.ejs", errors)%>
-    <form action="/instrument/update/<%= instrumentName%>?category=<%= categoryName%>" method="post">
-        <input type="text" name="instrumentName">
+    <form action="/instrument/update/<%= instrumentName%>" method="post">
+        <input type="text" name="instrumentName" value="<%= instrumentName%>">
+        <select name="categoryName">
+<% categories.forEach(category => {%>
+<option value="<%= category.category%>"><%= category.category%></option>
+<% }); %>
+</select>
         <button>Update Instrument</button>
     </form>
     <%= updated ? "Instrument updated successfully" : ""%>
