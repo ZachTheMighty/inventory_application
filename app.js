@@ -5,7 +5,7 @@ const path = require("node:path");
 try {
   loadEnvFile();
 } catch (error) {
-  if (error.code !== "ENONET") throw error;
+  if (error.code !== "ENOENT") throw error;
 }
 
 const app = express();
