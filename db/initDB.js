@@ -32,7 +32,7 @@ VALUES
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: argv[2],
+    connectionString: argv[2] || process.env.DATABASE_URL,
   });
   await client.connect();
   await client.query(SQL);
